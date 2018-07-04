@@ -12,7 +12,7 @@ import axios from '../../axios-orders';
 
 
 
-class burgerBuilder extends Component {
+export class BurgerBuilder extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -79,7 +79,7 @@ class burgerBuilder extends Component {
             );
             orderSummary = <OrderSummary
                 ingredients={this.props.ings}
-                price={this.props.price.toFixed(2)}
+                price={this.props.price }
                 purchaceCanceled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler} />;
         }
@@ -113,4 +113,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(burgerBuilder, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
